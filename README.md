@@ -24,4 +24,5 @@ Options available when initializing plugin:
 ### Dependencies
 
  * [moment.js](http://momentjs.com/) for easy date/time management
+ * [jQueryTemplate](https://github.com/Satsume/jQueryTemplate) to render the templates
  * [jQuery](http://jquery.com/)

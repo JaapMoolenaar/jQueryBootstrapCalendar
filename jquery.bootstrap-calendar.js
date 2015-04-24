@@ -42,9 +42,9 @@
             , daysrow:
                 '<tr><%= days %></tr>'
             , day:
-                '<td class="calendar-day text-center <% if(day === 0 || !enabled) { %> calendar-day-disabled<% } %><% if(selected) { %> active<% } %>">'
+                '<td class="calendar-day text-center <% if(othermonth) { %> calendar-day-othermonth<% } %><% if(!enabled) { %> calendar-day-disabled<% } %><% if(selected) { %> active<% } %>">'
                     // day = 0 means before starting day, or after last day
-                    + '<% if(day !== 0) { %>'
+                    + '<% if(!othermonth) { %>'
                         // enabled = true means it's in the min/maxDate range
                         + '<% if(enabled) { %>'
                             + '<a class="btn btn-link btn-block btn-day calendar-day" data-calendar-day="<%= day %>" data-calendar-action="selectday"><%= day %></a>'
@@ -244,6 +244,7 @@
                                     day: day,
                                     enabled: !check.pastmin && !check.pastmax,
                                     selected: selected,
+                                    othermonth: false,
                                     data: extra
                                 }));
                                 showndays++;
@@ -254,6 +255,7 @@
                                 day: 0,
                                 enabled: false,
                                 selected: false,
+                                othermonth: true,
                                 data: {}
                             }));
                         }
